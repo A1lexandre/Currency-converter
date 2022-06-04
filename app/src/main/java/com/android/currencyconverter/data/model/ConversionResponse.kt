@@ -1,6 +1,6 @@
 package com.android.currencyconverter.data.model
 
-data class ConvertionResponse(
+data class ConversionResponse(
     val date: String,
     val historical: String,
     val info: Info,
