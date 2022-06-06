@@ -4,15 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="32dp"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="CURRENCY CONVERTER"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox.Dense"
+        android:hint="amount"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@id/spinFrom"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="32dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tidAmount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="@id/spinFrom"
+        app:layout_constraintBottom_toTopOf="@id/spinFrom"
+        android:text="FROM"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/currency_codes"
+        app:layout_constraintTop_toTopOf="@id/tilAmount"
+        app:layout_constraintBottom_toBottomOf="@id/tilAmount"
+        app:layout_constraintStart_toEndOf="@id/tilAmount"
+        app:layout_constraintEnd_toStartOf="@id/spinTo"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="@id/spinTo"
+        app:layout_constraintBottom_toTopOf="@id/spinTo"
+        android:text="TO"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/currency_codes"
+        app:layout_constraintTop_toTopOf="@id/tilAmount"
+        app:layout_constraintBottom_toBottomOf="@id/tilAmount"
+        app:layout_constraintStart_toEndOf="@id/spinFrom"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

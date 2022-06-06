@@ -11,8 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
-class MainViewModel @Inject constructor(
+class MainViewModel constructor(
     private val repository: MainRepository,
     private val dispatcherProvider: DispatcherProvider
 ): ViewModel() {

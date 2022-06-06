@@ -2,6 +2,8 @@ package com.android.currencyconverter.di
 
 import com.android.currencyconverter.data.api.ApiService
 import com.android.currencyconverter.data.api.InterceptorProvider
+import com.android.currencyconverter.main.DefaultMainRepository
+import com.android.currencyconverter.main.MainRepository
 import com.android.currencyconverter.util.Constants.Api.BASE_URL
 import com.android.currencyconverter.util.DispatcherProvider
 import dagger.Module
@@ -43,5 +45,9 @@ object AppModule {
 
         }
     }
+
+    @Provides
+    @Singleton
+    fun provideMainRepository(api: ApiService): MainRepository = DefaultMainRepository(api)
 
 }

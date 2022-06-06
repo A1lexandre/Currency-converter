@@ -9,7 +9,7 @@ import com.android.currencyconverter.util.Resource.Error
 import java.lang.Exception
 
 class DefaultMainRepository constructor(
-    private val apiService: ApiService,
+    private val apiService: ApiService
 ) : MainRepository {
 
     override suspend fun convert(amount: String, from: String, to: String): Resource<ConversionResponse> {
