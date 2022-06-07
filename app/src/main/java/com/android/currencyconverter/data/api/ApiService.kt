@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("/exchangerates_data/convert?to={to}&from={from}&amount={amount}")
+    @GET("/exchangerates_data/convert?")
     suspend fun convert(@Query("amount") amount: String,
                         @Query("from") from: String,
                         @Query("to") to: String): Response<ConversionResponse>
